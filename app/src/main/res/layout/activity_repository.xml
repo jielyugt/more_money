@@ -23,52 +23,52 @@
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
         <TextView
-            android:id="@+id/text_repo_description"
+            android:id="@+id/text_item_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="20dp"
             android:paddingLeft="16dp"
-            android:paddingRight="16dp"
             android:paddingTop="10dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="20dp"
             android:textColor="@color/white"
             android:textSize="16sp"
-            tools:text="This is the description for this repository that can be fairly long" />
+            tools:text="This is the description for this item that can be fairly long" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="395dp"
+        android:layout_height="434dp"
         android:layout_below="@id/layout_header"
-        android:layout_marginBottom="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/text_homepage"
+            android:id="@+id/text_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autoLink="web"
             android:textSize="16sp"
-            tools:text="http://google.com/library" />
+            tools:text="iPhone 11" />
 
         <TextView
-            android:id="@+id/text_language"
+            android:id="@+id/text_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textColor="@color/secondary_text"
             android:textSize="16sp"
-            tools:text="Language: Java" />
+            tools:text="Price: $9,000" />
 
         <TextView
-            android:id="@+id/text_fork"
+            android:id="@+id/text_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/text_fork"
+            android:text="this is the best cell phone"
             android:textColor="@color/secondary_text"
             android:textSize="16sp" />
 
@@ -81,25 +81,26 @@
         <RelativeLayout
             android:id="@+id/layout_owner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="64dp"
             android:layout_marginTop="16dp"
             android:orientation="horizontal"
             android:visibility="gone"
             tools:visibility="visible">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/image_owner"
-                android:layout_width="65dp"
-                android:layout_height="65dp" />
-
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="315dp"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/image_owner"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="27dp"
+                android:layout_marginLeft="27dp"
+                android:layout_marginEnd="37dp"
+                android:layout_marginRight="37dp"
+                android:orientation="vertical"
                 android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:layout_centerVertical="true"
-                android:orientation="vertical">
+                android:paddingRight="10dp">
 
                 <TextView
                     android:id="@+id/text_owner_name"
@@ -110,13 +111,13 @@
                     tools:text="Owner Name" />
 
                 <TextView
-                    android:id="@+id/text_owner_email"
+                    android:id="@+id/text_owner_website"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
                     android:textColor="@color/secondary_text"
                     android:textSize="14sp"
-                    tools:text="owner@email.com" />
+                    tools:text="apple.com" />
 
                 <TextView
                     android:id="@+id/text_owner_location"
@@ -126,12 +127,23 @@
                     android:layout_marginTop="3dp"
                     android:textColor="@color/secondary_text"
                     android:textSize="14sp"
-                    tools:text="Brighton" />
+                    tools:text="New York" />
 
             </LinearLayout>
 
         </RelativeLayout>
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="253dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"></LinearLayout>
 
 </RelativeLayout>

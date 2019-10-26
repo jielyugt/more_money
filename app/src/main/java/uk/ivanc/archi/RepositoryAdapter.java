@@ -56,11 +56,12 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Re
         holder.repository = repository;
         holder.titleTextView.setText(repository.name);
         holder.descriptionTextView.setText(repository.description);
-
-//        holder.forksTextView.setText(
-//                context.getResources().getString(R.string.text_forks, repository.forks));
-
-        holder.price.setText("$ " + repository.forks);
+        holder.watchersTextView.setText(
+                context.getResources().getString(R.string.text_watchers, repository.watchers));
+        holder.starsTextView.setText(
+                context.getResources().getString(R.string.text_stars, repository.stars));
+        holder.forksTextView.setText(
+                context.getResources().getString(R.string.text_forks, repository.forks));
     }
 
     @Override
@@ -72,17 +73,17 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Re
         public View contentLayout;
         public TextView titleTextView;
         public TextView descriptionTextView;
-//        public TextView watchersTextView;
-//        public TextView starsTextView;
-        public TextView price;
+        public TextView watchersTextView;
+        public TextView starsTextView;
+        public TextView forksTextView;
         public Repository repository;
 
         public RepositoryViewHolder(View itemView) {
             super(itemView);
             contentLayout = itemView.findViewById(R.id.layout_content);
             titleTextView = (TextView) itemView.findViewById(R.id.text_repo_title);
-            descriptionTextView = (TextView) itemView.findViewById(R.id.text_repo_description);
-            price = (TextView) itemView.findViewById(R.id.text_forks);
+            descriptionTextView = (TextView) itemView.findViewById(R.id.text_item_description);
+            forksTextView = (TextView) itemView.findViewById(R.id.text_forks);
         }
     }
 
