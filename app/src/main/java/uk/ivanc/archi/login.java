@@ -30,11 +30,14 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import retrofit2.Call;
 import retrofit2.adapter.rxjava.HttpException;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import uk.ivanc.archi.model.GithubService;
+import uk.ivanc.archi.model.Item;
+import uk.ivanc.archi.model.ItemService;
 import uk.ivanc.archi.model.Repository;
 
 public class login extends Activity {
@@ -55,6 +58,7 @@ public class login extends Activity {
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
+        ItemService itemService = ItemService.Factory.create();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loginin_page);
         b1 = (Button) findViewById(R.id.button);
