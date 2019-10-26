@@ -17,15 +17,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.app.Activity;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.view.View;
-
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -48,10 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView infoTextView;
     private ImageButton searchButton;
 
-
-
-
-    //@Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
