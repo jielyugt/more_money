@@ -55,14 +55,14 @@ public class RepositoryActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        descriptionText = (TextView) findViewById(R.id.text_repo_description);
-        homepageText = (TextView) findViewById(R.id.text_homepage);
-        languageText = (TextView) findViewById(R.id.text_language);
-        forkText = (TextView) findViewById(R.id.text_fork);
+        descriptionText = (TextView) findViewById(R.id.text_item_description);
+        homepageText = (TextView) findViewById(R.id.text_item);
+        languageText = (TextView) findViewById(R.id.text_price);
+        forkText = (TextView) findViewById(R.id.text_description);
         ownerNameText = (TextView) findViewById(R.id.text_owner_name);
-        ownerEmailText = (TextView) findViewById(R.id.text_owner_email);
+        ownerEmailText = (TextView) findViewById(R.id.text_owner_website);
         ownerLocationText = (TextView) findViewById(R.id.text_owner_location);
-        ownerImage = (ImageView) findViewById(R.id.image_owner);
+        ownerImage = (ImageView) findViewById(R.id.imageView);
         ownerLayout = findViewById(R.id.layout_owner);
 
         Repository repository = getIntent().getParcelableExtra(EXTRA_REPOSITORY);

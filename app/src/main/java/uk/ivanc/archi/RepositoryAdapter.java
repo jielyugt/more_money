@@ -80,7 +80,7 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Re
         public RepositoryViewHolder(View itemView) {
             super(itemView);
             contentLayout = itemView.findViewById(R.id.layout_content);
-            titleTextView = (TextView) itemView.findViewById(R.id.item_name);
+            titleTextView = (TextView) itemView.findViewById(R.id.text_repo_title);
             descriptionTextView = (TextView) itemView.findViewById(R.id.text_repo_description);
             price = (TextView) itemView.findViewById(R.id.text_forks);
         }
