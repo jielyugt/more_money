@@ -7,13 +7,6 @@
     android:orientation="vertical"
     tools:activity=".RepositoryActivity">
 
-    <ImageView
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/octocat" />
-
     <LinearLayout
         android:id="@+id/layout_header"
         android:layout_width="match_parent"
