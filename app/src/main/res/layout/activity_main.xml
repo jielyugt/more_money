@@ -47,7 +47,7 @@
             android:inputType="text"
             android:textColor="@color/white"
             android:theme="@style/LightEditText"/>
-<!--        android:hint="@string/hit_username"-->
+            <!--android:hint="@string/hit_username"-->
 
     </RelativeLayout>
 
