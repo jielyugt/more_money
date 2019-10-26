@@ -28,7 +28,7 @@
             android:paddingRight="12dp"
             android:paddingTop="12dp"
             android:textSize="20sp"
-            tools:text="Repository Name" />
+            tools:text="Item Name" />
 
         <TextView
             android:id="@+id/text_repo_description"
@@ -40,7 +40,7 @@
             android:paddingTop="10dp"
             android:textSize="14sp"
             android:textColor="@color/secondary_text"
-            tools:text="This is where the repository description will go" />
+            tools:text="Item description" />
 
         <View
             android:layout_width="match_parent"
