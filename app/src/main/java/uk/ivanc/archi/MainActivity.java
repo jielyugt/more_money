@@ -39,12 +39,20 @@ public class MainActivity extends AppCompatActivity {
     private TextView infoTextView;
     private ImageButton searchButton;
 
+    private TextView money;
+    private TextView slogan;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         progressBar = (ProgressBar) findViewById(R.id.progress);
         infoTextView = (TextView) findViewById(R.id.text_info);
+
+        //Set up money view !!!!!!
+        money = (TextView) findViewById(R.id.money);
+        slogan = (TextView) findViewById(R.id.slogan);
+
         //Set up ToolBar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -85,6 +93,11 @@ public class MainActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
         reposRecycleView.setVisibility(View.GONE);
         infoTextView.setVisibility(View.GONE);
+
+        // Hide money view !!!!!!
+        money.setVisibility(View.GONE);
+        slogan.setVisibility(View.GONE);
+
         ArchiApplication application = ArchiApplication.get(this);
         GithubService githubService = application.getGithubService();
         subscription = githubService.publicRepositories(username)

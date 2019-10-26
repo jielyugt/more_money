@@ -56,12 +56,11 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Re
         holder.repository = repository;
         holder.titleTextView.setText(repository.name);
         holder.descriptionTextView.setText(repository.description);
-        holder.watchersTextView.setText(
-                context.getResources().getString(R.string.text_watchers, repository.watchers));
-        holder.starsTextView.setText(
-                context.getResources().getString(R.string.text_stars, repository.stars));
-        holder.forksTextView.setText(
-                context.getResources().getString(R.string.text_forks, repository.forks));
+
+//        holder.forksTextView.setText(
+//                context.getResources().getString(R.string.text_forks, repository.forks));
+
+        holder.price.setText("$ " + repository.forks);
     }
 
     @Override
@@ -73,9 +72,9 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Re
         public View contentLayout;
         public TextView titleTextView;
         public TextView descriptionTextView;
-        public TextView watchersTextView;
-        public TextView starsTextView;
-        public TextView forksTextView;
+//        public TextView watchersTextView;
+//        public TextView starsTextView;
+        public TextView price;
         public Repository repository;
 
         public RepositoryViewHolder(View itemView) {
@@ -83,9 +82,7 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Re
             contentLayout = itemView.findViewById(R.id.layout_content);
             titleTextView = (TextView) itemView.findViewById(R.id.text_repo_title);
             descriptionTextView = (TextView) itemView.findViewById(R.id.text_repo_description);
-            watchersTextView = (TextView) itemView.findViewById(R.id.text_watchers);
-            starsTextView = (TextView) itemView.findViewById(R.id.text_stars);
-            forksTextView = (TextView) itemView.findViewById(R.id.text_forks);
+            price = (TextView) itemView.findViewById(R.id.text_forks);
         }
     }
 
