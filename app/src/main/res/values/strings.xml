@@ -13,4 +13,10 @@
     <string name="default_info_message">Search for the item you want to buy</string>
     <string name="text_fork">This repository is a fork</string>
     <string name="text_language">Language: %s</string>
+    <string name="login_page">Login Page</string>
+    <string name="user_name">user name</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="button">Button</string>
+    <string name="textview">TextView</string>
 </resources>
