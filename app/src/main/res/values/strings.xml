@@ -14,7 +14,9 @@
     <string name="text_language">Language: %s</string>
     <string name="start_money">$0.00</string>
 
-    
 
-<!--   why is it not working???? -->
+
+    <!--   why is it not working???? -->
+    <string name="dummy">gets added</string>
+
 </resources>
