@@ -3,7 +3,7 @@
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
     <color name="white_transparent">#75ffffff</color>
-    <color name="very_light_grey">#e1e1e1</color>
+    <color name="very_light_grey">#f5f5f5</color>
 <!--    <color name="primary">#3F51B5</color>-->
     <color name="primary">#FFD700</color>
     <color name="primary_dark">#303F9F</color>
