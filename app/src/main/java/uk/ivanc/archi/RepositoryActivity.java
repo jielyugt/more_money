@@ -81,7 +81,7 @@ public class RepositoryActivity extends AppCompatActivity {
         descriptionText.setText(repository.description);
         homepageText.setText(repository.homepage);
         homepageText.setVisibility(repository.hasHomepage() ? View.VISIBLE : View.GONE);
-        languageText.setText(getString(R.string.text_language, repository.language));
+        languageText.setText(getString(R.string.text_price, repository.language));
         languageText.setVisibility(repository.hasLanguage() ? View.VISIBLE : View.GONE);
         forkText.setVisibility(repository.isFork() ? View.VISIBLE : View.GONE);
         //Preload image for user because we already have it before loading the full user

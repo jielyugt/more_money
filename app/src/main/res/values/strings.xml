@@ -11,7 +11,7 @@
     <string name="error_username_not_found">Oops, Octocat doesn\'t know that username</string>
     <string name="default_info_message">Search for an item you want to buy</string>
     <string name="text_fork">This repository is a fork</string>
-    <string name="text_language">Language: %s</string>
+    <string name="text_price">Price: %s</string>
     <string name="start_money">$0.00</string>
 
 
