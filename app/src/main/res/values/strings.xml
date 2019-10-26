@@ -13,4 +13,8 @@
     <string name="text_fork">This repository is a fork</string>
     <string name="text_language">Language: %s</string>
     <string name="start_money">$0.00</string>
+
+    
+
+<!--   why is it not working???? -->
 </resources>
