@@ -17,6 +17,7 @@ import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import uk.ivanc.archi.model.GithubService;
+import uk.ivanc.archi.model.Item;
 import uk.ivanc.archi.model.Repository;
 import uk.ivanc.archi.model.User;
 
@@ -27,21 +28,29 @@ public class RepositoryActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private TextView descriptionText;
-    private TextView homepageText;
-    private TextView languageText;
-    private TextView forkText;
-    private TextView ownerNameText;
-    private TextView ownerEmailText;
-    private TextView ownerLocationText;
-    private ImageView ownerImage;
-    private View ownerLayout;
+    private TextView priceText;
+//    private TextView forkText;
+//    private TextView ownerNameText;
+//    private TextView ownerEmailText;
+//    private TextView ownerLocationText;
+//    private ImageView ownerImage;
+//    private View ownerLayout;
+//    private TextView itemName;
+//    private Item item;
+//    public Item small_latte = new Item(1, "small latte", "coffee", 3.25, "nice local coffee bean, 8oz");
+//    public Item medium_latte = new Item(2, "medium latte", "coffee", 3.75, "medium latte, 12oz");
+//    public Item large_latte = new Item(1, "large latte", "coffee", 3.25, "served in special Halloween cup!");
+//
 
-    private Subscription subscription;
+//    private Subscription subscription;
 
-    public static Intent newIntent(Context context, Repository repository) {
-        Intent intent = new Intent(context, RepositoryActivity.class);
-        intent.putExtra(EXTRA_REPOSITORY, repository);
-        return intent;
+    public static Intent newIntent(Context context, Item item) {
+        Intent i = new Intent(context, RepositoryActivity.class);
+        i.putExtra("name", item.getItemName());
+        i.putExtra("description", item.getDescription());
+        i.putExtra("price", Double.toString(item.getPrice()));
+        //i.putExtra("item", item)
+        return i;
     }
 
     @Override
@@ -55,64 +64,73 @@ public class RepositoryActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        descriptionText = (TextView) findViewById(R.id.text_item_description);
-        homepageText = (TextView) findViewById(R.id.text_item);
-        languageText = (TextView) findViewById(R.id.text_price);
-        forkText = (TextView) findViewById(R.id.text_description);
-        ownerNameText = (TextView) findViewById(R.id.text_owner_name);
-        ownerEmailText = (TextView) findViewById(R.id.text_owner_website);
-        ownerLocationText = (TextView) findViewById(R.id.text_owner_location);
-        ownerImage = (ImageView) findViewById(R.id.imageView);
-        ownerLayout = findViewById(R.id.layout_owner);
 
-        Repository repository = getIntent().getParcelableExtra(EXTRA_REPOSITORY);
-        bindRepositoryData(repository);
-        loadFullUser(repository.owner.url);
+        //dummy data
+
+        descriptionText = (TextView) findViewById(R.id.text_item_description);
+        priceText = (TextView) findViewById(R.id.price);
+        Intent i = getIntent();
+        String name = i.getStringExtra("name");
+        String description = i.getStringExtra("description");
+        String price = i.getStringExtra("price");
+        //Item item = i.getExtra("name");
+        //Item item =  i.getExtra("name_of_extra");
+
+        bindItemData(name, description, price);
+        //loadFullItem(item);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (subscription != null) subscription.unsubscribe();
+//        if (subscription != null) subscription.unsubscribe();
     }
 
-    private void bindRepositoryData(final Repository repository) {
-        setTitle(repository.name);
-        descriptionText.setText(repository.description);
-        homepageText.setText(repository.homepage);
-        homepageText.setVisibility(repository.hasHomepage() ? View.VISIBLE : View.GONE);
-        languageText.setText(getString(R.string.text_price, repository.language));
-        languageText.setVisibility(repository.hasLanguage() ? View.VISIBLE : View.GONE);
-        forkText.setVisibility(repository.isFork() ? View.VISIBLE : View.GONE);
+    private void bindItemData(final String name, final String description, final String price) {
+        setTitle(name);
+        descriptionText.setText(description);
+        priceText.setText(price);
+        // languageText.setVisibility(repository.hasLanguage() ? View.VISIBLE : View.GONE);
         //Preload image for user because we already have it before loading the full user
-        Picasso.with(this)
-                .load(repository.owner.avatarUrl)
-                .placeholder(R.drawable.placeholder)
-                .into(ownerImage);
-    }
-
-    private void bindOwnerData(final User owner) {
-        ownerNameText.setText(owner.name);
-        ownerEmailText.setText(owner.email);
-        ownerEmailText.setVisibility(owner.hasEmail() ? View.VISIBLE : View.GONE);
-        ownerLocationText.setText(owner.location);
-        ownerLocationText.setVisibility(owner.hasLocation() ? View.VISIBLE : View.GONE);
     }
 
 
-    private void loadFullUser(String url) {
-        ArchiApplication application = ArchiApplication.get(this);
-        GithubService githubService = application.getGithubService();
-        subscription = githubService.userFromUrl(url)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(application.defaultSubscribeScheduler())
-                .subscribe(new Action1<User>() {
-                    @Override
-                    public void call(User user) {
-                        Log.i(TAG, "Full user data loaded " + user);
-                        bindOwnerData(user);
-                        ownerLayout.setVisibility(View.VISIBLE);
-                    }
-                });
-    }
+    //private void bindOwnerData(final User owner) {
+        //ownerNameText.setText(owner.name);
+        //ownerEmailText.setText(owner.email);
+        //ownerEmailText.setVisibility(owner.hasEmail() ? View.VISIBLE : View.GONE);
+        //ownerLocationText.setText(owner.location);
+        //ownerLocationText.setVisibility(owner.hasLocation() ? View.VISIBLE : View.GONE);
+    //}
+//
+
+
+//    private void loadFullItem(String url) {
+//        ArchiApplication application = ArchiApplication.get(this);
+//        GithubService githubService = application.getGithubService();
+//        subscription = githubService.userFromUrl(url)
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribeOn(application.defaultSubscribeScheduler())
+//                .subscribe(new Action1<User>() {
+//                    @Override
+//                    public void call(User user) {
+//                        Log.i(TAG, "Full user data loaded " + user);
+//                        bindItemData(user);
+//                        ownerLayout.setVisibility(View.VISIBLE);
+//                    }
+//                });
+//    }
+
+//    private void loadFullItem(String url) {
+//        ArchiApplication application = ArchiApplication.get(this);
+//        GithubService githubService = application.getGithubService();
+//
+//                    @Override
+//                    public void call(Item item) {
+//                        Log.i(TAG, "Full user data loaded " + item);
+//                        bindItemData(item);
+//                        ownerLayout.setVisibility(View.VISIBLE);
+//                    }
+//                });
+//    }
 }

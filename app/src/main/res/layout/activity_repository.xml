@@ -47,7 +47,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/text_item"
+            android:id="@+id/itemName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autoLink="web"
@@ -55,7 +55,7 @@
             tools:text="iPhone 11" />
 
         <TextView
-            android:id="@+id/text_price"
+            android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -64,7 +64,7 @@
             tools:text="Price: $9,000" />
 
         <TextView
-            android:id="@+id/text_description"
+            android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

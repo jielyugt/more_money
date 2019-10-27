@@ -233,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.setCallback(new RepositoryAdapter.Callback() {
             @Override
             public void onItemClick(Item item) {
-//                startActivity(RepositoryActivity.newIntent(MainActivity.this, item));
+                startActivity(RepositoryActivity.newIntent(MainActivity.this, item));
             }
         });
         recyclerView.setAdapter(adapter);
