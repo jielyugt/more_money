@@ -38,7 +38,7 @@
 
     <LinearLayout
         android:layout_width="395dp"
-        android:layout_height="434dp"
+        android:layout_height="106dp"
         android:layout_below="@id/layout_header"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
@@ -64,7 +64,7 @@
             tools:text="Price: $9,000" />
 
         <TextView
-            android:id="@+id/description"
+            android:id="@+id/detail_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -78,72 +78,6 @@
             android:layout_marginTop="16dp"
             android:background="@color/divider" />
 
-        <RelativeLayout
-            android:id="@+id/layout_owner"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            android:visibility="gone"
-            tools:visibility="visible">
-
-            <LinearLayout
-                android:layout_width="315dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginStart="27dp"
-                android:layout_marginLeft="27dp"
-                android:layout_marginEnd="37dp"
-                android:layout_marginRight="37dp"
-                android:orientation="vertical"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp">
-
-                <TextView
-                    android:id="@+id/text_owner_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/secondary_text"
-                    android:textSize="16sp"
-                    tools:text="Owner Name" />
-
-                <TextView
-                    android:id="@+id/text_owner_website"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:textColor="@color/secondary_text"
-                    android:textSize="14sp"
-                    tools:text="apple.com" />
-
-                <TextView
-                    android:id="@+id/text_owner_location"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginTop="3dp"
-                    android:textColor="@color/secondary_text"
-                    android:textSize="14sp"
-                    tools:text="New York" />
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="253dp"
-            tools:srcCompat="@tools:sample/avatars" />
-
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"></LinearLayout>
 
 </RelativeLayout>

@@ -29,6 +29,8 @@ public class RepositoryActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TextView descriptionText;
     private TextView priceText;
+    private TextView detailText;
+    private TextView nameText;
 //    private TextView forkText;
 //    private TextView ownerNameText;
 //    private TextView ownerEmailText;
@@ -69,6 +71,8 @@ public class RepositoryActivity extends AppCompatActivity {
 
         descriptionText = (TextView) findViewById(R.id.text_item_description);
         priceText = (TextView) findViewById(R.id.price);
+        detailText = (TextView) findViewById(R.id.detail_description);
+        nameText = (TextView) findViewById(R.id.itemName);
         Intent i = getIntent();
         String name = i.getStringExtra("name");
         String description = i.getStringExtra("description");
@@ -90,6 +94,8 @@ public class RepositoryActivity extends AppCompatActivity {
         setTitle(name);
         descriptionText.setText(description);
         priceText.setText(price);
+        detailText.setText(description);
+        nameText.setText(name);
         // languageText.setVisibility(repository.hasLanguage() ? View.VISIBLE : View.GONE);
         //Preload image for user because we already have it before loading the full user
     }
