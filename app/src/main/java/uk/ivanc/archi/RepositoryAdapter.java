@@ -11,7 +11,6 @@ import java.util.Collections;
 import java.util.List;
 
 import uk.ivanc.archi.model.Item;
-//import uk.ivanc.archi.model.Repository;
 
 public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.RepositoryViewHolder> {
 
