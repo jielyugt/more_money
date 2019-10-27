@@ -12,8 +12,10 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 
 
 import com.squareup.picasso.Picasso;
@@ -46,6 +48,7 @@ public class RepositoryActivity extends AppCompatActivity {
     private EditText editTextUsername;
     private TextView infoTextView;
     public static double originalPrice;
+    private ImageButton searchButton;
 
     public static Intent newIntent(Context context, Item item) {
         Intent i = new Intent(context, RepositoryActivity.class);
@@ -179,15 +182,50 @@ public class RepositoryActivity extends AppCompatActivity {
             public void onItemClick(Item item) {
                 //startActivity(RepositoryActivity.newIntent(RepositoryActivity.this, item));
                 MainActivity.total_investment += (originalPrice - item.getPrice());
+
                 setContentView(R.layout.activity_main);
-                TextView money;
-                money = (TextView) findViewById(R.id.money);
-                money.setText(String.format("$%.2f", MainActivity.total_investment));
+                Intent intent = new Intent(RepositoryActivity.this, MainActivity.class);
+//                EditText editText = (EditText) findViewById(R.id.editText);
+//                String message = editText.getText().toString();
+//                intent.putExtra(EXTRA_MESSAGE, message);
+                startActivity(intent);
+
+
+//                TextView money;
+////                money = (TextView) findViewById(R.id.money);
+////                money.setText(String.format("$%.2f", MainActivity.total_investment));
+////                //Set up ToolBar
+////                toolbar = (Toolbar) findViewById(R.id.toolbar);
+////                setSupportActionBar(toolbar);
+////                //Set up RecyclerView
+////                reposRecycleView = (RecyclerView) findViewById(R.id.repos_recycler_view);
+////                setupRecyclerView(reposRecycleView);
+////                // Set up search button
+////                searchButton = (ImageButton) findViewById(R.id.button_search);
+////                setContentView(R.layout.activity_main);
+
+
+                //directly finish
+//                finish();
+
+//                searchButton.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//
+////                loadGithubRepos(editTextUsername.getText().toString());
+//                        MainActivity.loadItems(editTextUsername.getText().toString());
+//
+//                    }
+//                });
 
             }
         });
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
+
+
+
+
 
 }

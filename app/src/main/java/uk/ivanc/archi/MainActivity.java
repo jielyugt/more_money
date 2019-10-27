@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView infoTextView;
     private ImageButton searchButton;
 
+
     private TextView money;
     private TextView slogan;
 
