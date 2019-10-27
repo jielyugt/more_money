@@ -24,6 +24,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
 
+import android.widget.Button;
+
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
@@ -49,6 +51,7 @@ public class RepositoryActivity extends AppCompatActivity {
     private TextView infoTextView;
     public static double originalPrice;
     private ImageButton searchButton;
+    private Button buttonBuy;
 
     public static Intent newIntent(Context context, Item item) {
         Intent i = new Intent(context, RepositoryActivity.class);
@@ -94,6 +97,19 @@ public class RepositoryActivity extends AppCompatActivity {
         setupRecyclerView(reposRecycleView);
         loadCheaperItems(name, Double.valueOf(price), category);
         //loadFullItem(item);
+        buttonBuy = (Button) findViewById(R.id.button);
+        buttonBuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.activity_main);
+                Intent intent = new Intent(RepositoryActivity.this, MainActivity.class);
+//                EditText editText = (EditText) findViewById(R.id.editText);
+//                String message = editText.getText().toString();
+//                intent.putExtra(EXTRA_MESSAGE, message);
+                startActivity(intent);
+
+            }
+        });
     }
 
     @Override

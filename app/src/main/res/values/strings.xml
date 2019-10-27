@@ -16,6 +16,8 @@
     <string name="start_money">$0.00</string>
     <string name="this_is_the_best_cell_phone">this is the best cell phone</string>
     <string name="recommended_items">Recommended Items</string>
+    <string name="transfer">TRANSFER</string>
+    <string name="invest">INVEST</string>
 
 
     <!--   why is it not working???? -->
