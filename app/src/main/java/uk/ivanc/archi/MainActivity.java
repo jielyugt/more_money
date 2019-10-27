@@ -20,7 +20,6 @@ import android.widget.TextView;
 
 import java.util.List;
 import java.util.ArrayList;
-
 import rx.Subscription;
 import uk.ivanc.archi.model.Item;
 
@@ -39,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView money;
     private TextView slogan;
 
+    public double total_investment = 6.2;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
 
         //Set up money view !!!!!!
         money = (TextView) findViewById(R.id.money);
+
+        money.setText(String.format("$%.2f", total_investment));
         slogan = (TextView) findViewById(R.id.slogan);
 
         //Set up ToolBar

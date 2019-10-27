@@ -96,7 +96,7 @@
         android:layout_marginTop="0dp"
         android:layout_marginRight="@dimen/vertical_margin"
         android:gravity="center"
-        android:text="@string/start_money"
+        android:text=""
         android:textColor="@color/secondary_text"
         android:textSize="30sp" />
 
