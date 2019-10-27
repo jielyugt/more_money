@@ -46,23 +46,6 @@ public class RepositoryActivity extends AppCompatActivity {
     private EditText editTextUsername;
     private TextView infoTextView;
 
-
-
-//    private TextView forkText;
-//    private TextView ownerNameText;
-//    private TextView ownerEmailText;
-//    private TextView ownerLocationText;
-//    private ImageView ownerImage;
-//    private View ownerLayout;
-//    private TextView itemName;
-//    private Item item;
-//    public Item small_latte = new Item(1, "small latte", "coffee", 3.25, "nice local coffee bean, 8oz");
-//    public Item medium_latte = new Item(2, "medium latte", "coffee", 3.75, "medium latte, 12oz");
-//    public Item large_latte = new Item(1, "large latte", "coffee", 3.25, "served in special Halloween cup!");
-//
-
-//    private Subscription subscription;
-
     public static Intent newIntent(Context context, Item item) {
         Intent i = new Intent(context, RepositoryActivity.class);
         i.putExtra("name", item.getItemName());
@@ -128,31 +111,8 @@ public class RepositoryActivity extends AppCompatActivity {
         reposRecycleView.setVisibility(View.GONE);
         infoTextView.setVisibility(View.GONE);
 
-//        Item small_latte = new Item(1, "small latte", "coffee", 3.25, "nice local coffee bean, 8oz");
-//        Item medium_latte = new Item(2, "medium latte", "coffee", 3.75, "medium latte, 12oz");
-//        Item large_latte = new Item(1, "large latte", "coffee", 3.25, "served in special Halloween cup!");
-//        Item apple = new Item(1, "apple", "fruit", 1.70, "best apple in the world!");
-//        Item watermelon = new Item(1, "watermelon", "fruit", 2.10, "summer time!");
-//
-//        List<Item> inventory = new ArrayList();
-//        inventory.add(small_latte);
-//        inventory.add(medium_latte);
-//        inventory.add(large_latte);
-//        inventory.add(apple);
-//        inventory.add(watermelon);
-
         List<Item> inventory = MainActivity.unique_dummy_inventory;
-        
-        //try
-//        List<Item> cheap_inventory = find_cheaper_items(inventory, name, price);
-//        RepositoryAdapter adapter = (RepositoryAdapter) reposRecycleView.getAdapter();
-//        adapter.setRepositories(cheap_inventory);
-//        adapter.notifyDataSetChanged();
-//        if (reposRecycleView.getAdapter().getItemCount() > 0) {
-//                reposRecycleView.requestFocus();
-//                hideSoftKeyboard();
-//                reposRecycleView.setVisibility(View.VISIBLE);
-//        }
+
 
         if (inventory != null) {
 
@@ -190,12 +150,7 @@ public class RepositoryActivity extends AppCompatActivity {
                 }
             }
         }
-//        Item small_latte1 = new Item(1, "small latte1", "coffee", 3.25, "nice local coffee bean, 8oz");
-//        Item medium_latte1 = new Item(2, "medium latte1", "coffee", 3.75, "medium latte, 12oz");
-//        System.out.println("Fuck: in find_cheaper_items()");
-//        System.out.println("Fuck: trying to find cheaper version for:" );
-//        applicable_inventory.add(small_latte1);
-//        applicable_inventory.add(medium_latte1);
+
         System.out.println("Fuck:" + applicable_inventory);
         return applicable_inventory;
     }
@@ -213,10 +168,6 @@ public class RepositoryActivity extends AppCompatActivity {
         return false;
     }
 
-//    private void hideSoftKeyboard() {
-//        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-//        imm.hideSoftInputFromWindow(editTextUsername.getWindowToken(), 0);
-//    }
 
     private void setupRecyclerView(RecyclerView recyclerView) {
         RepositoryAdapter adapter = new RepositoryAdapter();
@@ -230,43 +181,4 @@ public class RepositoryActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-
-    //private void bindOwnerData(final User owner) {
-        //ownerNameText.setText(owner.name);
-        //ownerEmailText.setText(owner.email);
-        //ownerEmailText.setVisibility(owner.hasEmail() ? View.VISIBLE : View.GONE);
-        //ownerLocationText.setText(owner.location);
-        //ownerLocationText.setVisibility(owner.hasLocation() ? View.VISIBLE : View.GONE);
-    //}
-//
-
-
-//    private void loadFullItem(String url) {
-//        ArchiApplication application = ArchiApplication.get(this);
-//        GithubService githubService = application.getGithubService();
-//        subscription = githubService.userFromUrl(url)
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribeOn(application.defaultSubscribeScheduler())
-//                .subscribe(new Action1<User>() {
-//                    @Override
-//                    public void call(User user) {
-//                        Log.i(TAG, "Full user data loaded " + user);
-//                        bindItemData(user);
-//                        ownerLayout.setVisibility(View.VISIBLE);
-//                    }
-//                });
-//    }
-
-//    private void loadFullItem(String url) {
-//        ArchiApplication application = ArchiApplication.get(this);
-//        GithubService githubService = application.getGithubService();
-//
-//                    @Override
-//                    public void call(Item item) {
-//                        Log.i(TAG, "Full user data loaded " + item);
-//                        bindItemData(item);
-//                        ownerLayout.setVisibility(View.VISIBLE);
-//                    }
-//                });
-//    }
 }
