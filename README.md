@@ -1,4 +1,5 @@
 # HackGT 6 Project
+by Bingze Cai, Xiaoying Yang and Jie Lyu
 
 ## Description
 More Money helps you save and invest whenever you shop. The inspiration came from an observation, both from our personal experience and our friends, that sometimes we pay extra $$$ for something that is not worth it, just because we feel good for paying that extra $$$. So we though about why don't we make an app that let people keep that good feeling but also save the money for them. So we made More Money.
@@ -12,9 +13,6 @@ We had trouble accessing the Silver API, mostly because we are inexperienced in 
 
 ## Instruction
 To run this project, download Android Studio and use Android SDK API 25
-
-## Team Member
-Bingze Cai, Xiaoying Yang and Jie Lyu
 
 ## Credit
 Android Studio template forked from git repository [ivacf/archi](https://github.com/ivacf/archi)
