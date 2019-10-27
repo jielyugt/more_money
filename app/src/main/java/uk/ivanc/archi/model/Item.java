@@ -27,6 +27,16 @@ public class Item implements Parcelable {
         dest.writeString(this.description);
     }
 
+    // Dummy manual Item constructor
+    protected Item(long Id, String itemName, String categoryName, int price, String description) {
+        this.Id = Id;
+        this.itemName = itemName;
+        this.categoryName = categoryName;
+        this.price = price;
+        this.description = description;
+    }
+
+
     protected Item(Parcel in) {
         this.Id = in.readLong();
         this.itemName = in.readString();

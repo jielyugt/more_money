@@ -8,6 +8,7 @@
     <string name="text_forks">%d \nForks</string>
     <string name="error_loading_repos">Oops, something went wrong</string>
     <string name="text_empty_repos">This account doesn\'t have any public repository</string>
+    <string name="text_empty_inventory">No item found</string>
     <string name="error_username_not_found">Oops, Octocat doesn\'t know that username</string>
     <string name="default_info_message">Search for an item you want to buy</string>
     <string name="text_fork">This repository is a fork</string>

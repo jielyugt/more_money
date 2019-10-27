@@ -19,13 +19,16 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import retrofit2.adapter.rxjava.HttpException;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import uk.ivanc.archi.model.GithubService;
+import uk.ivanc.archi.model.ItemService;
 import uk.ivanc.archi.model.Repository;
+import uk.ivanc.archi.model.Item;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,7 +67,10 @@ public class MainActivity extends AppCompatActivity {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadGithubRepos(editTextUsername.getText().toString());
+
+//                loadGithubRepos(editTextUsername.getText().toString());
+                loadItems(editTextUsername.getText().toString());
+
             }
         });
         //Set up username EditText
@@ -89,7 +95,8 @@ public class MainActivity extends AppCompatActivity {
         if (subscription != null) subscription.unsubscribe();
     }
 
-    public void loadGithubRepos(String username) {
+
+    public void loadItems(String itemname) {
         // Hide money view !!!!!!
         money.setVisibility(View.GONE);
         slogan.setVisibility(View.GONE);
@@ -97,12 +104,54 @@ public class MainActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
         reposRecycleView.setVisibility(View.GONE);
         infoTextView.setVisibility(View.GONE);
+
+
+        Item small_latte = new Item(1, "small latte", "coffee", 3.25, "nice local coffee bean, 8oz");
+        Item medium_latte = new Item(2, "medium latte", "coffee", 3.75, "medium latte, 12oz");
+        Item large_latte = new Item(1, "large latte", "coffee", 3.25, "served in special Halloween cup!");
+
+        List<Item> inventory = new ArrayList();
+        inventory.add(small_latte);
+        inventory.add(medium_latte);
+        inventory.add(large_latte);
+
+        System.out.println(ArrayList.toString(inventory));
+
+//        List<Item> inventory = ItemService.getInventory();
+
+        if (inventory != null) {
+            RepositoryAdapter adapter = (RepositoryAdapter) reposRecycleView.getAdapter();
+            adapter.setRepositories(inventory);
+            adapter.notifyDataSetChanged();
+
+        } else {
+            infoTextView.setText(R.string.text_empty_inventory);
+            infoTextView.setVisibility(View.VISIBLE);
+        }
+
+
+    }
+
+    public void loadGithubRepos(String username) {
+
+        // Hide money view !!!!!!
+        money.setVisibility(View.GONE);
+        slogan.setVisibility(View.GONE);
+
+        progressBar.setVisibility(View.VISIBLE);
+        reposRecycleView.setVisibility(View.GONE);
+        infoTextView.setVisibility(View.GONE);
+
+
+        // doing stuff here
         ArchiApplication application = ArchiApplication.get(this);
-        GithubService githubService = application.getGithubService();
+        ItemService itemService = application.getItemService();
+
+
         subscription = githubService.publicRepositories(username)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(application.defaultSubscribeScheduler())
-                .subscribe(new Subscriber<List<Repository>>() {
+                .subscribe(new Subscriber<List<Item>>() {
                     @Override
                     public void onCompleted() {
                         progressBar.setVisibility(View.GONE);
@@ -129,12 +178,16 @@ public class MainActivity extends AppCompatActivity {
                         infoTextView.setVisibility(View.VISIBLE);
                     }
 
+
                     @Override
-                    public void onNext(List<Repository> repositories) {
-                        Log.i(TAG, "Repos loaded " + repositories);
+                    public void onNext(List<Item> items) {
+
+                        // loading the items to recycle view!!!
+                        // TODO: It's the important part!!!
+
                         RepositoryAdapter adapter =
                                 (RepositoryAdapter) reposRecycleView.getAdapter();
-                        adapter.setRepositories(repositories);
+                        adapter.setRepositories(items);
                         adapter.notifyDataSetChanged();
                     }
                 });

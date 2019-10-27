@@ -6,6 +6,7 @@ import android.content.Context;
 import rx.Scheduler;
 import rx.schedulers.Schedulers;
 import uk.ivanc.archi.model.GithubService;
+import uk.ivanc.archi.model.ItemService;
 
 public class ArchiApplication extends Application {
 
@@ -14,6 +15,14 @@ public class ArchiApplication extends Application {
 
     public static ArchiApplication get(Context context) {
         return (ArchiApplication) context.getApplicationContext();
+    }
+
+    public ItemService getItemService() {
+
+        // TODO: get an instance of ItemService
+        ItemService itemService = null;
+        return itemService;
+
     }
 
     public GithubService getGithubService() {
