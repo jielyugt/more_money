@@ -30,6 +30,7 @@
             android:paddingTop="10dp"
             android:paddingRight="16dp"
             android:paddingBottom="20dp"
+            android:textStyle="italic"
             android:textColor="@color/white"
             android:textSize="16sp"
             tools:text="This is the description for this item that can be fairly long" />
@@ -51,7 +52,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autoLink="web"
-            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textSize="30sp"
             tools:text="iPhone 11" />
 
         <TextView
@@ -59,8 +61,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:textColor="@color/secondary_text"
-            android:textSize="16sp"
+            android:textColor="@color/primary_text"
+            android:textSize="20sp"
             tools:text="Price: $9,000" />
 
         <TextView

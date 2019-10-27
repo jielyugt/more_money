@@ -56,7 +56,7 @@ public class RepositoryActivity extends AppCompatActivity {
     private void bindItemData(final String name, final String description, final String price) {
         setTitle(name);
         descriptionText.setText(description);
-        priceText.setText(price);
+        priceText.setText("$ " + price);
         detailText.setText(description);
         nameText.setText(name);
     }
