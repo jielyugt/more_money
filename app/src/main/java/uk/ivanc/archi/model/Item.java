@@ -7,7 +7,7 @@ public class Item implements Parcelable {
     public long Id;
     private String itemName;
     private String categoryName;
-    private int price;
+    private double price;
     private String description;
 
     public Item() {
@@ -23,17 +23,37 @@ public class Item implements Parcelable {
         dest.writeLong(this.Id);
         dest.writeString(this.itemName);
         dest.writeString(this.categoryName);
-        dest.writeInt(this.price);
+        dest.writeDouble(this.price);
         dest.writeString(this.description);
     }
 
     // Dummy manual Item constructor
-    protected Item(long Id, String itemName, String categoryName, int price, String description) {
+    public Item(long Id, String itemName, String categoryName, double price, String description) {
         this.Id = Id;
         this.itemName = itemName;
         this.categoryName = categoryName;
         this.price = price;
         this.description = description;
+    }
+
+    public String getItemName() {
+        return this.itemName;
+    }
+
+    public long getId() {
+        return this.Id;
+    }
+
+    public String getCategoryName() {
+        return this.categoryName;
+    }
+
+    public double getPrice() {
+        return this.price;
+    }
+
+    public String getDescription() {
+        return this.description;
     }
 
 
@@ -77,7 +97,7 @@ public class Item implements Parcelable {
         int result = (int) (Id ^ (Id >>> 32));
         result = 31 * result + (itemName != null ? itemName.hashCode() : 0);
         result = 31 * result + (categoryName != null ? categoryName.hashCode() : 0);
-        result = 31 * result + price;
+        result = 31 * result + (int)price;
         result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
     }

@@ -10,23 +10,24 @@ import android.widget.TextView;
 import java.util.Collections;
 import java.util.List;
 
-import uk.ivanc.archi.model.Repository;
+import uk.ivanc.archi.model.Item;
+//import uk.ivanc.archi.model.Repository;
 
 public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.RepositoryViewHolder> {
 
-    private List<Repository> repositories;
+    private List<Item> inventory;
     private Callback callback;
 
     public RepositoryAdapter() {
-        this.repositories = Collections.emptyList();
+        this.inventory = Collections.emptyList();
     }
 
-    public RepositoryAdapter(List<Repository> repositories) {
-        this.repositories = repositories;
+    public RepositoryAdapter(List<Item> inventory) {
+        this.inventory = inventory;
     }
 
-    public void setRepositories(List<Repository> repositories) {
-        this.repositories = repositories;
+    public void setRepositories(List<Item> inventory) {
+        this.inventory = inventory;
     }
 
     public void setCallback(Callback callback) {
@@ -42,7 +43,7 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Re
             @Override
             public void onClick(View v) {
                 if (callback != null) {
-                    callback.onItemClick(viewHolder.repository);
+                    callback.onItemClick(viewHolder.item);
                 }
             }
         });
@@ -51,21 +52,17 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Re
 
     @Override
     public void onBindViewHolder(RepositoryViewHolder holder, int position) {
-        Repository repository = repositories.get(position);
+        Item item = inventory.get(position);
         Context context = holder.titleTextView.getContext();
-        holder.repository = repository;
-        holder.titleTextView.setText(repository.name);
-        holder.descriptionTextView.setText(repository.description);
-
-//        holder.forksTextView.setText(
-//                context.getResources().getString(R.string.text_forks, repository.forks));
-
-        holder.price.setText("$ " + repository.forks);
+        holder.item = item;
+        holder.titleTextView.setText(item.getItemName());
+        holder.descriptionTextView.setText(item.getDescription());
+        holder.price.setText("$ " + item.getPrice());
     }
 
     @Override
     public int getItemCount() {
-        return repositories.size();
+        return inventory.size();
     }
 
     public static class RepositoryViewHolder extends RecyclerView.ViewHolder {
@@ -75,7 +72,7 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Re
 //        public TextView watchersTextView;
 //        public TextView starsTextView;
         public TextView price;
-        public Repository repository;
+        public Item item;
 
         public RepositoryViewHolder(View itemView) {
             super(itemView);
@@ -87,6 +84,6 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Re
     }
 
     public interface Callback {
-        void onItemClick(Repository repository);
+        void onItemClick(Item item);
     }
 }
