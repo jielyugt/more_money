@@ -91,12 +91,12 @@
         android:layout_marginBottom="43dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="@string/recommended_items" />
+<!--        <TextView-->
+<!--            android:id="@+id/textView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="@string/recommended_items" />-->
 
         <LinearLayout
             android:id="@+id/layout_content"
@@ -188,6 +188,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
+        android:textColor="@color/primary_text"
         android:text="Buy With One Click"
         android:textSize="24sp" />
 
