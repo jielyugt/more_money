@@ -45,6 +45,7 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Re
         return viewHolder;
     }
 
+
     @Override
     public void onBindViewHolder(RepositoryViewHolder holder, int position) {
         Item item = inventory.get(position);
