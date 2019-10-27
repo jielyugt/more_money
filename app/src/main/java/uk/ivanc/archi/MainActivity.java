@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView money;
     private TextView slogan;
 
-    public double total_investment = 6.2;
+    public static double total_investment = 6.2;
 
     public static List<Item> unique_dummy_inventory;
 

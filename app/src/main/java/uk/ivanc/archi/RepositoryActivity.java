@@ -45,9 +45,11 @@ public class RepositoryActivity extends AppCompatActivity {
     private RecyclerView reposRecycleView;
     private EditText editTextUsername;
     private TextView infoTextView;
+    public static double originalPrice;
 
     public static Intent newIntent(Context context, Item item) {
         Intent i = new Intent(context, RepositoryActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         i.putExtra("name", item.getItemName());
         i.putExtra("description", item.getDescription());
         i.putExtra("price", Double.toString(item.getPrice()));
@@ -80,6 +82,7 @@ public class RepositoryActivity extends AppCompatActivity {
         String description = i.getStringExtra("description");
         String price = i.getStringExtra("price");
         String category = i.getStringExtra("category");
+        originalPrice = Double.valueOf(price);
         //Item item = i.getExtra("name");
         //Item item =  i.getExtra("name_of_extra");
 
@@ -174,7 +177,13 @@ public class RepositoryActivity extends AppCompatActivity {
         adapter.setCallback(new RepositoryAdapter.Callback() {
             @Override
             public void onItemClick(Item item) {
-                startActivity(RepositoryActivity.newIntent(RepositoryActivity.this, item));
+                //startActivity(RepositoryActivity.newIntent(RepositoryActivity.this, item));
+                MainActivity.total_investment += (originalPrice - item.getPrice());
+                setContentView(R.layout.activity_main);
+                TextView money;
+                money = (TextView) findViewById(R.id.money);
+                money.setText(String.format("$%.2f", MainActivity.total_investment));
+
             }
         });
         recyclerView.setAdapter(adapter);
