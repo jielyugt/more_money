@@ -29,6 +29,8 @@ import uk.ivanc.archi.model.GithubService;
 import uk.ivanc.archi.model.Item;
 import uk.ivanc.archi.model.Repository;
 import uk.ivanc.archi.model.User;
+import uk.ivanc.archi.MainActivity;
+
 
 public class RepositoryActivity extends AppCompatActivity {
 
@@ -125,19 +127,22 @@ public class RepositoryActivity extends AppCompatActivity {
 //        progressBar.setVisibility(View.VISIBLE);
         reposRecycleView.setVisibility(View.GONE);
         infoTextView.setVisibility(View.GONE);
-        Item small_latte = new Item(1, "small latte", "coffee", 3.25, "nice local coffee bean, 8oz");
-        Item medium_latte = new Item(2, "medium latte", "coffee", 3.75, "medium latte, 12oz");
-        Item large_latte = new Item(1, "large latte", "coffee", 3.25, "served in special Halloween cup!");
-        Item apple = new Item(1, "apple", "fruit", 1.70, "best apple in the world!");
-        Item watermelon = new Item(1, "watermelon", "fruit", 2.10, "summer time!");
 
-        List<Item> inventory = new ArrayList();
-        inventory.add(small_latte);
-        inventory.add(medium_latte);
-        inventory.add(large_latte);
-        inventory.add(apple);
-        inventory.add(watermelon);
+//        Item small_latte = new Item(1, "small latte", "coffee", 3.25, "nice local coffee bean, 8oz");
+//        Item medium_latte = new Item(2, "medium latte", "coffee", 3.75, "medium latte, 12oz");
+//        Item large_latte = new Item(1, "large latte", "coffee", 3.25, "served in special Halloween cup!");
+//        Item apple = new Item(1, "apple", "fruit", 1.70, "best apple in the world!");
+//        Item watermelon = new Item(1, "watermelon", "fruit", 2.10, "summer time!");
+//
+//        List<Item> inventory = new ArrayList();
+//        inventory.add(small_latte);
+//        inventory.add(medium_latte);
+//        inventory.add(large_latte);
+//        inventory.add(apple);
+//        inventory.add(watermelon);
 
+        List<Item> inventory = MainActivity.unique_dummy_inventory;
+        
         //try
 //        List<Item> cheap_inventory = find_cheaper_items(inventory, name, price);
 //        RepositoryAdapter adapter = (RepositoryAdapter) reposRecycleView.getAdapter();

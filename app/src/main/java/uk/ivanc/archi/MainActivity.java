@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
     public double total_investment = 6.2;
 
+    public static List<Item> unique_dummy_inventory;
+
 
 
     @Override
@@ -134,12 +136,14 @@ public class MainActivity extends AppCompatActivity {
             System.out.println(inventory.get(i).getItemName() + " loaded to the inventory");
         }
 
+        unique_dummy_inventory = inventory;
+
         // read API call
         //  List<Item> inventory = ItemService.getInventory();
 
-        if (inventory != null) {
+        if (unique_dummy_inventory != null) {
 
-            List<Item> applicable_inventory = find_applicable_items(inventory, item_name);
+            List<Item> applicable_inventory = find_applicable_items(unique_dummy_inventory, item_name);
             RepositoryAdapter adapter = (RepositoryAdapter) reposRecycleView.getAdapter();
             adapter.setRepositories(applicable_inventory);
             adapter.notifyDataSetChanged();
