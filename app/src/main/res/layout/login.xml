@@ -14,7 +14,7 @@
         android:ems="10"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="@dimen/vertical_margin"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="370dp"
         android:layout_marginRight="@dimen/vertical_margin"
         android:gravity="center"
         android:hint="Username"
@@ -28,7 +28,7 @@
         android:ems="10"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="@dimen/vertical_margin"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="470dp"
         android:layout_marginRight="@dimen/vertical_margin"
         android:gravity="center"
         android:hint="Password"
@@ -45,16 +45,27 @@
         android:background="?attr/colorPrimary"
         android:text="Login" />
 
-    <TextView
-        android:id="@+id/app_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/primary"
-        android:textSize="50sp"
+<!--    <TextView-->
+<!--        android:id="@+id/app_name"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textColor="@color/primary"-->
+<!--        android:textSize="50sp"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginLeft="@dimen/vertical_margin"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:layout_marginRight="@dimen/vertical_margin"-->
+<!--        android:text="More Money" />-->
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="@dimen/vertical_margin"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
         android:layout_marginRight="@dimen/vertical_margin"
-        android:text="More Money" />
+        android:="50sp"
+        app:srcCompat="@drawable/logo" />
 
 </RelativeLayout>
