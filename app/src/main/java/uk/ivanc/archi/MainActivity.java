@@ -21,13 +21,7 @@ import android.widget.TextView;
 import java.util.List;
 import java.util.ArrayList;
 
-import retrofit2.adapter.rxjava.HttpException;
-import rx.Subscriber;
 import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import uk.ivanc.archi.model.GithubService;
-import uk.ivanc.archi.model.ItemService;
-import uk.ivanc.archi.model.Repository;
 import uk.ivanc.archi.model.Item;
 
 public class MainActivity extends AppCompatActivity {
@@ -117,21 +111,23 @@ public class MainActivity extends AppCompatActivity {
 
         Item small_latte = new Item(1, "small latte", "coffee", 3.25, "nice local coffee bean, 8oz");
         Item medium_latte = new Item(2, "medium latte", "coffee", 3.75, "medium latte, 12oz");
-        Item large_latte = new Item(1, "large latte", "coffee", 3.25, "served in special Halloween cup!");
-        Item apple = new Item(1, "apple", "fruit", 1.70, "best apple in the world!");
-        Item watermelon = new Item(1, "watermelon", "fruit", 2.10, "summer time!");
+        Item large_latte = new Item(3, "large latte", "coffee", 4.25, "served in our special Halloween cup!");
+
+        Item apple = new Item(11, "apple", "fruit", 1.70, "just mediocre apple");
+        Item expensive_apple = new Item(12, "fuji apple", "fruit", 11.70, "best apple in the world!");
+        Item watermelon = new Item(13, "watermelon", "fruit", 2.10, "summer time!");
 
         List<Item> inventory = new ArrayList();
         inventory.add(small_latte);
         inventory.add(medium_latte);
         inventory.add(large_latte);
         inventory.add(apple);
+        inventory.add(expensive_apple);
         inventory.add(watermelon);
 
         for (int i = 0; i < inventory.size(); i++) {
             System.out.println(inventory.get(i).getItemName() + " loaded to the inventory");
         }
-
 
         // read API call
         //  List<Item> inventory = ItemService.getInventory();
@@ -153,7 +149,6 @@ public class MainActivity extends AppCompatActivity {
                 infoTextView.setVisibility(View.VISIBLE);
             }
         }
-
     }
 
     private List<Item> find_applicable_items(List<Item> inventory, String item_name) {
@@ -236,6 +231,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(RepositoryActivity.newIntent(MainActivity.this, item));
             }
         });
+
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

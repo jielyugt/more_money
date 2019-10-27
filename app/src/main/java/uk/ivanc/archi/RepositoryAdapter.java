@@ -21,10 +21,6 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Re
         this.inventory = Collections.emptyList();
     }
 
-    public RepositoryAdapter(List<Item> inventory) {
-        this.inventory = inventory;
-    }
-
     public void setRepositories(List<Item> inventory) {
         this.inventory = inventory;
     }
